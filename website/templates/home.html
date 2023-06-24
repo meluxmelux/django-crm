@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <br/>
+        <h1> You are Login </h1>
+        
+        {% else %}
+            <div class="col-md-6 offser-md-3"> 
+                <br/>
+                <h1> Login </h1>
+                <br/>
+            
+
+                <form method="POST" action="{% url 'home' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                    <input type="username" class="form-control" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="mb-3">
+                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit"  class="btn btn-primary">Login</button>
+                </form>
+            </div>
+    {% endif %}
+{% endblock  %}
