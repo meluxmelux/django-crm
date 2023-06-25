@@ -1,9 +1,58 @@
 {% extends 'base.html' %}
-
 {% block content %}
+
     {% if user.is_authenticated %}
         <br/>
-        <h1> You are Login </h1>
+        <h1> Records... </h1>
+            
+                    {% if records %}
+
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead class="table-dark">
+                        <tr>
+                            <th scope="col">####</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">phone</th>
+                            <th scope="col">address</th>
+                            <th scope="col">city</th>
+                            <th scope="col">state</th>
+                            <th scope="col">zipcode</th>
+                           
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in records %} 
+                            <tr>
+                                    <th scope="row">
+                                        <a href="{% url 'record' record.id %}"> 
+                                            <button type="button" class="btn btn-outline-primary">View</button> 
+                                        </a>
+                                        <a href="{% url 'delete_record' record.id %}"> 
+                                            <button type="button" class="btn btn-outline-danger">Delete</button> 
+                                        </a>
+                                        <a href="{% url 'update_record' record.id %}"> 
+                                            <button type="button" class="btn btn-outline-success">Edith</button> 
+                                        </a>
+                                    
+                                    </th>
+                                    <th scope="row">  {{ record.first_name }}</th>
+                                    <th scope="row"> {{  record.last_name }}</th>
+                                    <th scope="row">  {{ record.email }}</th>
+                                    <th scope="row"> {{  record.phone }}</th>
+                                    <th scope="row"> {{  record.address }}</th>
+                                    <th scope="row"> {{  record.city }}</th>
+                                    <th scope="row"> {{  record.state }}</th>
+                                    <th scope="row">  {{ record.zipcode }}</th>
+                            </tr>
+                                {% endfor %} 
+                        </tbody>
+                    </table>      
+                    {% endif %}
+                    <a href="{% url 'add_record' %}" class="btn btn-primary">Create New User</a>
+
+                    
         
         {% else %}
             <div class="col-md-6 offser-md-3"> 
