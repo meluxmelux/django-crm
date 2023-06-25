@@ -1,6 +1,6 @@
-# django-crm
+# Django-crm
 
-# For connect MySQL to Django  and Create first app
+# To connect MySQL to Django  and Create the first app
 
 (env) $ pip install mysql
 (env) $ pip install mysql-connector
@@ -31,4 +31,18 @@ DATABASES = {
     }
 }
 
-# Create mydb.py to root folder with theas details
+# Create mydb.py to the root folder with the details
+import mysql.connector
+
+dataBase =  mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    passwd = '1234'
+    
+)
+
+cursorObject = dataBase.cursor()
+
+cursorObject.execute("CREATE DATABASE melux")
+
+print("All Done!")
