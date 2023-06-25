@@ -46,3 +46,17 @@ cursorObject = dataBase.cursor()
 cursorObject.execute("CREATE DATABASE melux")
 
 print("All Done!")
+
+
+
+# Git Control
+1. git config --global user.name "USERNAME_ON_GITHUB"
+2. git config --global user.email "YOUR_MAIL"
+3. git config --global push.default matching
+4. git config --global alias.co checkout
+5. git init
+6. git add . 
+7. git commit -am "Initial"
+
+# CREATE A REPOSITORY ON GITHUB
+push an existing repository from the command line
